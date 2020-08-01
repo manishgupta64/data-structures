@@ -37,6 +37,8 @@ public class LinkedListPractice {
 		System.out.println("\nAfter remove middle element");
 		ll.print();
 		
+		// 6) Get and print the size of the linked list
+		System.out.println("\nSize  of linked lis is " + ll.size() );		
 	}
 }
 
@@ -143,12 +145,17 @@ class LinkedList
 			{
 				temp.next = temp.next.next;
 				elemRemoved = true;
+				
 				break;
 			}
 			else
 			{
 				temp = temp.next;
 			}
+		}
+		if( elemRemoved )
+		{
+			--this.count;
 		}
 		return elemRemoved;
 	}
@@ -179,6 +186,10 @@ class LinkedList
 				}
 			}
 		}
+		if( elemRemoved )
+		{
+			--this.count;
+		}
 		return elemRemoved;
 	}
 	
@@ -192,4 +203,10 @@ class LinkedList
 		}
 		System.out.println(" NULL");
 	}
+	
+	public int size()
+	{
+		return this.count;
+	}
+
 }
