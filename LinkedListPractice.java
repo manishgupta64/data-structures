@@ -39,6 +39,16 @@ public class LinkedListPractice {
 		
 		// 6) Get and print the size of the linked list
 		System.out.println("\nSize  of linked lis is " + ll.size() );		
+		
+		// 7) Reverse the linked list
+		ll.reverse();
+		System.out.println("\nReversed linked list");
+		ll.print();
+		
+		// 8) Reset/delete the linked list
+		ll.reset();
+		System.out.println("\nAfter linked list is deleted");
+		ll.print();
 	}
 }
 
@@ -207,6 +217,27 @@ class LinkedList
 	public int size()
 	{
 		return this.count;
+	}
+	
+	public void reset()
+	{
+		this.head = null;
+	}
+	
+	public void reverse()
+	{
+		Node current = this.head, prev = null, next = null;
+		while( current != null )
+		{
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+		}
+		if( prev != null )
+		{
+			this.head = prev;			
+		}
 	}
 
 }
